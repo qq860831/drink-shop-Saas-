@@ -1,0 +1,294 @@
+$green:#49aa45;
+$gray333:#333333;
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 微軟正黑體;
+    box-sizing: border-box;
+}
+#banner{
+    width: 1920px;
+    height: 1280px;
+    background-image: url(./image/banner.png);
+    // 格線會將子元素改為區塊元素
+    display: grid;
+    align-items: center;
+    // img是行內元素
+    img{
+        // 區塊元素才能調距離
+        margin:0 auto;
+    }
+}
+// 導覽列
+nav{
+    position: fixed;
+    width: 1920px;
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+
+// 導覽列盒子
+    #box{
+    margin:59px auto 0 ;
+    width: 1200px;
+    display: grid;
+    grid-template-columns:204px 351px 398px 120px 110px ;
+    
+       #link{
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        align-items: flex-end;
+        // 垂直對齊底線
+
+        a{
+            font-size: 18px;
+            font-weight: 100;
+            //直接選定子元素裡面的第幾個去修改
+            &:nth-child(2){
+                text-align: center;
+            }
+            &:nth-child(3){
+                text-align: right;
+            }
+        }
+       }
+       #social{
+           display: grid;
+           grid-template-columns: repeat(2,1fr);
+           align-items: flex-end;
+
+           a:nth-child(2){
+               text-align: right;
+           }
+       }
+    }
+}
+
+// 內容區域
+#content{
+    width: 1920px;
+    background-image: url(./image/paper.png);
+    border:0.1px solid rgba(0,0,0,0);
+    // 把外距壓縮到間隙填滿
+
+    h1{
+        text-align: center;
+        margin-top: 46px;
+        margin-bottom: 60px;
+        font-weight: 300;
+        letter-spacing:9.6px;
+        font-size: 32px;
+    }
+
+    // 最新消息
+    #news{
+        width: 1200px;
+        display: grid;
+        margin: 0 auto;
+        grid-template-columns: repeat(3,1fr);
+        grid-gap: 20px;
+        // ">"news裡面的第一層子元素
+        >div{
+            background-color: white;
+            padding: 40px 30px;
+
+            h3{
+                color: $green;
+                font-size: 12px;
+                font-weight: 300;
+                letter-spacing: 3.6px;
+                text-align: center;
+                margin: 20px auto;
+            }
+            h4{
+                font-size: 22px;
+                font-weight: bold;
+                letter-spacing: 5.5px;
+                text-align: center;
+                margin: 20px auto;
+                margin-bottom: 0;
+
+            }
+            p{
+                color: $gray333;
+                font-size: 16px;
+                font-weight: 300;
+                line-height: 1.88;
+                letter-spacing: 4.8px;
+                margin: 40px auto;
+
+            }
+            hr{
+                border: 0.5px solid #000;
+                width: 0;
+                transition: 0.5s;
+            }
+
+            div{
+                position: relative;
+                font-size: 0;
+            }
+
+            div::before{
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: #000;
+                z-index: 1;
+                opacity: 0;
+                transition: 0.5s;
+            }
+            img{
+                width: 100%;
+            }
+            &:hover{
+                hr{
+                    width: 100%;
+                }
+
+                div::before{
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+
+    // 推薦飲品
+    #product{
+        text-align: center;
+        position: relative;
+        width: 1200px;
+        margin: 0 auto;
+
+        div{
+            width: 290px;
+            height: 540px;
+            position: absolute;
+            top: 73px;
+            right: 120px;
+
+            h2{
+                color:#f5bb28;
+                font-size: 30px;
+                font-weight: 300;
+                letter-spacing: 8.4px;
+                text-align: center;
+                margin: 20px auto;
+            }
+            h5{
+                font-size: 16px;
+                font-weight: 300;
+                letter-spacing: 2.8px;
+                text-align: center;
+                color: #cccccc;
+                margin:10px auto ;
+              }
+            p{
+                width: 250px;
+                font-size:20px;
+                line-height: 2.5;
+                letter-spacing: 5px;
+                text-align: left;
+                color: #000000;
+                margin: 30px auto;
+                padding-left: 15px;
+              }
+            }
+            }
+        }
+
+    // 經營理念
+    #concept{
+        width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 620px auto;
+        grid-gap: 20px;
+        padding-right: 20px;
+        // 把格線沒有對齊好的用內距調整
+
+        img{
+            border: 10px solid white;
+        }
+        div{
+            width: 700px;
+            height: 350px;
+            h2{
+                font-size: 24px;
+                font-weight: 300;
+                letter-spacing: 7.2px;
+                text-align: left;
+                color: #000000;
+                margin: 20px auto;
+                margin-left: 20px;
+            }
+            h3{
+                width: 290px;
+                font-size: 20px;
+                font-weight: 300;
+                line-height: 2.5;
+                letter-spacing: 6px;
+                text-align: left;
+                color: #000000;
+                margin-left: 20px;
+            }
+            #frame{
+                width: 250px;
+                height: 60px;
+                margin-top: 20px;
+                margin-left: 20px;
+                #readmore{
+                width: 220px;
+                height: 52px;
+                border: solid 2px #252525;
+                h4{
+                    font-size: 18px;
+                    font-weight: 300;
+                    line-height: 2.78;
+                    letter-spacing: 5.4px;
+                    text-align: center;
+                    color: #000000;
+                     }
+                }
+            }
+            
+        }
+    }
+    // 頁尾
+    footer{
+        border:0.5px solid rgba(0,0,0,0); 
+        width: 1920px;
+        height: 600px;
+        background-image: url(./image/paper.png);
+        #title{
+                margin-top: 120px;
+                text-align: center;
+                align-items: center;
+                }
+        #ending{
+            text-align: center;
+            margin-top: 70px;
+            align-items: center;
+            h2{
+                font-size: 12px;
+                font-weight: 300;
+                line-height: 4.17;
+                letter-spacing: 3.6px;
+                text-align: center;
+                color: #000000;
+            }
+            h3{
+                font-size: 10px;
+                font-weight: 300;
+                line-height: 3;
+                letter-spacing: 3px;
+                text-align: center;
+                color: #000000;
+            }
+        }
+    }
+   
